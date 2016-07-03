@@ -9,10 +9,10 @@ function todoReducer(state = [],action){
       newState[id].completed = !newState[id].completed;
       return newState;
     case 'ADD_TODO':
-      if (_.isEmpty(action.payload)) {
+      if (_.isEmpty(action.payload)) { // If action is empty, just return state. No change
         return state;
       }
-      if (_.findIndex(state,{text: action.payload}) >= 0) {
+      if (_.findIndex(state,{text: action.payload}) >= 0) { // If action already found, then, just return state. No change.
         return state;
       }
       var newTodo = [{text: action.payload, completed: false}];
